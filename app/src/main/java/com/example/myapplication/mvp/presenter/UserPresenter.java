@@ -11,14 +11,17 @@ public class UserPresenter {
    private UserView view;
 
     @Inject
-    public UserPresenter(UserModel model, UserView view) {
+    public UserPresenter(UserModel model) {
         this.model = model;
-        this.view = view;
     }
 
     public void doLogin(){
         if (model.loginServer("pjz","123")) {
             view.loginSuccess();
         }
+    }
+
+    public void takeView(UserView view){
+        this.view = view;
     }
 }
